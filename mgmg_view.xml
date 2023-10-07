@@ -1,0 +1,118 @@
+<odoo>
+	<data>
+
+		<record id="kanban_mgmg_view" model="ir.ui.view">
+			<field name="name">kanban.mgmg.view</field>
+			<field name="model">mgmg.model</field>
+			<field name="arch" type="xml">
+				<kanban class="o_kanban_mobile">
+					<field name="id"/>
+					<field name="cv_image"/>
+					<field name="name"/>
+					<field name="religion"/>
+					<field name="nationality"/>
+					<templates>
+						<t t-name="kanban-box">
+							<div t-attf-class="oe_kanban_global_click">
+								<div class="o_kanban_image">
+									<img t-att-src="kanban_image('mgmg.model', 'cv_image', record.id.raw_value)"/>
+								</div>
+								<div class="oe_kanban_details">
+									<field name="name"/><br/>
+									<field name="religion"/><br/>
+									<field name="nationality"/>
+								</div>
+							</div>
+						</t>
+					</templates>
+				</kanban>
+			</field>
+		</record>
+
+		<act_window id="action_mgmg_view"
+			name="Mg Mg"
+			res_model="mgmg.model"
+			view_mode="kanban,tree,form" />
+
+		<menuitem id="mgmg_view"
+			name="Mg Mg View"
+			parent="personal_name"
+			action="action_mgmg_view"
+			sequence="10" />
+
+		<!-- <tree view> -->
+		<record id="tree_mgmg_view" model="ir.ui.view">
+			<field name="name">tree.mgmg.view</field>
+			<field name="model">mgmg.model</field>
+			<field name="arch" type="xml">
+				<tree string="Tree Form">
+					<field name="name"/>
+					<field name="cv_image"/>
+					<field name="dob"/>
+					<field name="pob"/>
+					<field name="sex"/>
+					<field name="religion"/>
+					<field name="race"/>
+					<field name="nationality"/>
+					<field name="martial_status"/>
+					<field name="education"/>
+					<field name="working_experience"/>
+					<field name="phone"/>
+				</tree>
+			</field>
+		</record>
+
+		<!-- <Form View> -->
+		<record id="form_mgmg_view" model="ir.ui.view">
+			<field name="name">form.mgmg.view</field>
+			<field name="model">mgmg.model</field>
+			<field name="arch" type="xml">
+				<form string="Form View">
+					<sheet>
+						<field name="cv_image" widget="image" class="oe_avatar"/>
+						<div class="oe_title">
+							<label for="name"/>
+							<h1>
+								<field name="name" place_holder="Enter Your Name" required="True"/>
+							</h1>
+							<field name="job_type"/>
+						</div>
+						<notebook>
+							<page string="Personal Information">
+								<group string="Personal Information">
+									<field name="name"/>
+									<field name="dob"/>
+									<field name="pob"/>
+									<field name="sex"/>
+								</group>
+							</page>
+							<page string="Canon">
+								<group>
+									<group>
+										<field name="religion"/>
+										<field name="race"/>
+									</group>
+									<group>
+										<field name="nationality"/>
+										<field name="martial_status"/>
+									</group>
+								</group>
+								<group>
+									<field name="education"/>
+									<field name="working_experience"/>
+									<field name="phone"/>
+								</group>
+							</page>
+						</notebook>
+					</sheet>
+					<div class="oe_chatter">
+						<field name="message_follower_ids" widget="mgmg_follower"/>
+						<field name="activity_ids" widget="mgmg_activity"/>
+						<field name="message_ids" widget="mgmg_message"/>
+					</div>
+				</form>
+			</field>
+		</record>
+
+	</data>
+</odoo>

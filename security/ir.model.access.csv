@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+zinmoekyaw,Zin Moe Kyaw,model_zinmoekyaw_model,,1,1,1,1
+
+mgmg,Mg Mg,model_mgmg_model,,1,1,1,1
+education,Education Background,model_education_background_model,,1,1,1,1
+employment,Employment Management,model_employment_management_model,,1,1,1,1

@@ -1,0 +1,57 @@
+<odoo>
+	<data>
+		<act_window id="action_employment_management"
+			name="Employment Management"
+			res_model="employment.management.model"
+			view_mode="tree,form" />
+		
+		<menuitem id="employment_management_view"
+			name="Employment Management View"
+			parent="education_background_view"
+			action="action_employment_management"
+			sequence="20" />
+
+		<record id="tree_employment_management_view" model="ir.ui.view">
+			<field name="name">tree.employment.management.view</field>
+			<field name="model">employment.management.model</field>
+			<field name="arch" type="xml">
+				<tree string="Tree View">
+					<field name="name"/>
+					<field name="cv_image"/>
+					<field name="position"/>
+					<field name="salary"/>
+					<field name="bonus"/>
+				</tree>
+			</field>
+		</record>
+
+		<record id="form_employment_management_view" model="ir.ui.view">
+			<field name="name">form.employment.management.view</field>
+			<field name="model">employment.management.model</field>
+			<field name="arch" type="xml">
+				<form string="Form View">
+					<sheet>
+						<field name="cv_image" widget="image" class="oe_avatar"/>
+						<div class="oe_title">
+							<label for="name"/>
+							<h1>
+								<field name="name" place_holder="Enter Your Name" required="True"/>
+							</h1>
+							<field name="job_type"/>
+						</div>
+						<notebook>
+							<page string="Education Background">
+								<group>
+									<field name="position"/>
+									<field name="salary"/>
+									<field name="bonus"/>
+								</group>
+							</page>
+						</notebook>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+	</data>
+</odoo>

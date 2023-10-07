@@ -1,0 +1,35 @@
+<odoo>
+	<data>
+
+		<template id="zinmoekyaw_template">
+			<t t-call="web.html_container">
+				<t t-call="web.basic_layout">
+					<t t-foreach="docs" t-as="doc">
+						<table>
+							<thead>
+								<tr>
+									<th style="text-align:center; vartical-align:middle;">
+										<h1>CV Form</h1>
+									</th>
+									<th colspan="2" style="text-align:center; vartical-align:middle;">
+										<div style="height:2in; width:2in; border:1px solid blue;">
+											<span t-field="doc.cv_image"
+												  t-options="{'widget': 'image', 'style': 'height:100%; width:100%;'}" />
+										</div>
+									</th>
+								</tr>
+							</thead>
+						</table>
+					</t>
+				</t>
+			</t>
+		</template>
+		
+		<report id="zinmoekyaw_report"
+			model="zinmoekyaw.model"
+			string="Zin Moe Kyaw Report"
+			report_type="qweb-pdf"
+			name="zinmoekyaw_app.zinmoekyaw_template"
+			file="zinmoekyaw_app.zinmoekyaw_template" />
+	</data>
+</odoo>
